@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ColorMatcher</string>
+    <string name="intro">To get started, click on the button below to start the camera</string>
+    <string name="content_description">This is a button</string>
+    <string name="content_description_2">This is where the image will be placed</string>
+    <string name="content_description_3">This is where the detected color will be seen</string>
+    <string name="content_description_4">This is where the recommended color will be seen</string>
+    <string name="touch">Touch on the image anywhere to get the color</string>
+    <string name="detected_label">Detected color</string>
+    <string name="recommended_label">Recommended color</string>
+</resources>
