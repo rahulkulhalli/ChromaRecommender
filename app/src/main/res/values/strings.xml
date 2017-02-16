@@ -8,4 +8,6 @@
     <string name="touch">Touch on the image anywhere to get the color</string>
     <string name="detected_label">Detected color</string>
     <string name="recommended_label">Recommended color</string>
+    <string name="triads">Triads</string>
+    <string name="analog_text">Analogs</string>
 </resources>

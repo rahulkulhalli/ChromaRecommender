@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,17 @@ import android.widget.TextView;
 import android.support.v4.graphics.ColorUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ImageFragment extends Fragment {
 
     private ImageView detected;
     private ImageView recommended;
+    private ImageView analog_1;
+    private ImageView analog_2;
+    private ImageView triad_1;
+    private ImageView triad_2;
 
     private float[] shiftHueByX(int X, float[] HSL){
         //H is already in degrees. No need for conversion
@@ -47,12 +53,9 @@ public class ImageFragment extends Fragment {
         //convert back to RGB
         int new_color = ColorUtils.HSLToColor(shifted_hsl);
 
+        Log.d("COLOR_RECOMMENDED :: ", Color.red(new_color)+", "+Color.green(new_color)+", "+Color.blue(new_color));
         recommended.setBackgroundColor(new_color);
-
-        //get analog colors
-        int[] analog_colors = getAnalogColors(color);
     }
-
 
     private List<Integer[]> getTriadicColors(int color){
         List<Integer[]> list = new ArrayList<>();
@@ -60,7 +63,7 @@ public class ImageFragment extends Fragment {
         //extract r,g,b
         int r = Color.red(color);
         int g = Color.green(color);
-        int b = Color.green(color);
+        int b = Color.blue(color);
 
         //triad :: r,g,b ; b,r,g ; g,b,r
 
@@ -113,12 +116,27 @@ public class ImageFragment extends Fragment {
 
     public void updateColor(int color){
         if(detected != null){
+            Log.d("COLOR_DETECTED :: ", Color.red(color)+", "+Color.green(color)+", "+Color.blue(color));
             detected.setBackgroundColor(color);
             //call method to get complementary color
             convertRGBtoHSV(color);
 
             //call method to get triads
-            List<Integer[]> iist = getTriadicColors(color);
+            List<Integer[]> my_list = getTriadicColors(color);
+            //0 -> original
+            Log.d("COLOR_TRIAD_1 :: ", Arrays.toString(my_list.get(1)));
+            triad_1.setBackgroundColor(Color.rgb(my_list.get(1)[0], my_list.get(1)[1], my_list.get(1)[2]));
+
+            Log.d("COLOR_TRIAD_2 :: ", Arrays.toString(my_list.get(2)));
+            triad_2.setBackgroundColor(Color.rgb(my_list.get(2)[0], my_list.get(2)[1], my_list.get(2)[2]));
+
+            //get analog colors
+            int[] analog_colors = getAnalogColors(color);
+            Log.d("COLOR_ANALOG_1 :: ", Color.red(analog_colors[0])+", "+Color.green(analog_colors[0])+", "+Color.blue(analog_colors[0]));
+            analog_1.setBackgroundColor(analog_colors[0]);
+            //1 -> original
+            Log.d("COLOR_ANALOG_1 :: ", Color.red(analog_colors[2])+", "+Color.green(analog_colors[2])+", "+Color.blue(analog_colors[2]));
+            analog_2.setBackgroundColor(analog_colors[2]);
         }
     }
 
@@ -129,10 +147,12 @@ public class ImageFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.image_fragment, container, false);
 
-        TextView label1 = (TextView) view.findViewById(R.id.d);
-        TextView label2 = (TextView) view.findViewById(R.id.r);
         detected = (ImageView) view.findViewById(R.id.d_c);
         recommended = (ImageView) view.findViewById(R.id.r_c);
+        analog_1 = (ImageView) view.findViewById(R.id.analog_1);
+        analog_2 = (ImageView) view.findViewById(R.id.analog_2);
+        triad_1 = (ImageView) view.findViewById(R.id.triad_1);
+        triad_2 = (ImageView) view.findViewById(R.id.triad_2);
 
         return view;
     }

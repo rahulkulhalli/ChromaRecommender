@@ -1,48 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
     android:id="@+id/layout_fragment">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/r"
-        tools:text="@string/recommended_label"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="12dp"
+        android:id="@+id/detect"
+        tools:text="@string/detected_label"
         android:textStyle="normal|bold"
         android:textSize="18sp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/d"
-        tools:text="@string/detected_label"
-        android:textStyle="normal|bold"
-        android:textSize="18sp"
-        android:layout_marginLeft="24dp"
+        android:id="@+id/r"
+        tools:text="@string/recommended_label"
+        android:layout_below="@id/detect"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
-        android:layout_alignBottom="@+id/d_c"
-        android:layout_alignStart="@+id/r"
-        android:layout_marginBottom="14dp" />
-
-    <ImageView
-        android:id="@+id/r_c"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="24dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:textStyle="bold"
+        android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/d_c"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="24dp"
-        android:layout_above="@+id/r_c"
-        android:layout_alignParentEnd="true" />
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/detect"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="78dp"/>
+
+    <ImageView
+        android:id="@+id/r_c"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/r"
+        android:layout_marginTop="65dp"
+        android:layout_marginStart="30dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/triad"
+        android:text="@string/triads"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/r"
+        android:layout_marginTop="30dp"/>
+
+    <ImageView
+        android:id="@+id/triad_1"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/triad"
+        android:layout_marginTop="120dp"
+        android:layout_marginStart="80dp"/>
+
+    <ImageView
+        android:id="@+id/triad_2"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="120dp"
+        android:layout_toEndOf="@id/triad_1"
+        android:layout_marginStart="50dp"/>
+
+    <TextView
+        android:id="@+id/analog"
+        android:text="@string/analog_text"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/triad"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/analog_1"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/analog"
+        android:layout_marginTop="170dp"
+        android:layout_marginStart="65dp"/>
+
+    <ImageView
+        android:id="@+id/analog_2"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/analog_1"
+        android:layout_marginTop="170dp"
+        android:layout_marginStart="50dp"/>
 </RelativeLayout>
