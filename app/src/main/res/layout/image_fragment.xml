@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="220dp"
+    android:background="#26000000"
     android:id="@+id/layout_fragment">
 
 
@@ -10,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/detect"
-        tools:text="@string/detected_label"
+        android:text="@string/detected_label"
+        android:textColor="@android:color/black"
         android:textStyle="normal|bold"
         android:textSize="18sp"
         android:layout_marginStart="20dp"
@@ -21,7 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/r"
-        tools:text="@string/recommended_label"
+        android:text="@string/recommended_label"
+        android:textColor="@android:color/black"
         android:layout_below="@id/detect"
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
@@ -50,6 +53,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/triad"
         android:text="@string/triads"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_marginStart="20dp"
@@ -75,6 +79,7 @@
     <TextView
         android:id="@+id/analog"
         android:text="@string/analog_text"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_marginStart="20dp"
